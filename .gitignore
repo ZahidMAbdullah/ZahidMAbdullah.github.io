@@ -1,0 +1,19 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Local preview / tooling
+.playwright-cli/
+
+# Local source material — never published.
+My Content/
+My Content.zip
+CV_Template_Example/
+*CV_*.docx
+*CV_*.pdf
+*Research*Plan_*.pdf
+My_Picture.jpeg
+
+# LaTeX build output
+cv/build/
