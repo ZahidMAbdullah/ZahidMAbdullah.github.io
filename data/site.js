@@ -14,6 +14,7 @@ const SITE = {
 
   // Leave a value as "" to hide that link everywhere on the site.
   github: "https://github.com/ZahidMAbdullah",
+  linkedin: "https://www.linkedin.com/in/muhammad-abdullah-zahid-3b5a1226a/",
 
   /* --- Research keywords (shown under the hero) -------------------------- */
   keywords: [
