@@ -365,6 +365,17 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 0.6rem;
 }
 
+.site-notice {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 .hero-text + .about-prose { margin-top: 2.75rem; }
 .about-prose { max-width: 70ch; font-size: 1.0625rem; }
 
