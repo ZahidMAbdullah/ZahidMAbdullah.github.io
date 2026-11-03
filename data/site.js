@@ -9,6 +9,8 @@ const SITE = {
 
   /* --- Identity & links -------------------------------------------------- */
   name: "Muhammad Abdullah Zahid",
+  email: "2023m654@kuas.ac.jp",
+  altEmail: "abdullahzahid1440@gmail.com",
 
   // Leave a value as "" to hide that link everywhere on the site.
   github: "https://github.com/ZahidMAbdullah",
@@ -73,6 +75,67 @@ const SITE = {
   // "present" come first, then the most recently finished. `featured: true`
   // highlights a card and wins ties within the same year.
   projects: [
+    {
+      name: "HaptLinX",
+      tagline: "Haptic-enabled mixed-reality training for fine telemanipulation",
+      featured: true,
+      years: "2025",
+      description: "The initial training interface prototype for the IEEE World Haptics 2025 Student Innovation Challenge. A digital twin of a 6-DoF Kinova Gen3 Lite is controlled in mixed reality by inverse-kinematics hand tracking and mirrored in real time by the physical arm over UDP, while a bHaptics TactGlove and TactSuit render contact, grasp, alignment, and proximity cues. The same system was presented at RSJ2025 and evaluated in a twelve-participant skill-acquisition study. Its MR training environment became my current lab project, and my planned Master’s research extends it from training to physical execution through the same interface.",
+      tags: ["Unity", "Meta Quest 3S", "Kinova Gen3 Lite", "bHaptics", "Inverse Kinematics", "UDP"],
+      links: [{ label: "WHC 2025 poster", url: "assets/posters/zahid-2025-whc-sic-haptlinx-poster.jpg" }],
+    },
+    {
+      name: "Escapement Rendering for a Virtual Piano",
+      tagline: "Passive wearable kinesthetic feedback with no key surface",
+      featured: true,
+      years: "2025 – 2026",
+      description: "A surfaceless virtual piano in which a passive electromagnetic tendon-resistance device reproduces the non-monotonic response of a real piano action — resistance buildup, a brief let-off, then recovery — driven by normalized key depression and adapted to press speed. Participants reliably detected the release and located it within the downstroke.",
+      tags: ["Wearable Haptics", "Passive Force Feedback", "XR", "Psychophysics"],
+      links: [],
+    },
+    {
+      name: "Uncertainty-Aware Semantic Object Navigation",
+      tagline: "Reliable object search for mobile robots in dynamic environments",
+      featured: false,
+      years: "2026 – present",
+      description: "A newer research direction in the NISAR Laboratory: a semantic ObjectNav framework that combines object memory, detection confidence and spatial uncertainty, active exploration, and autonomous navigation so that a mobile robot can find objects reliably even when the scene changes.",
+      tags: ["NVIDIA Isaac Sim", "Mobile Robots", "Semantic Navigation", "Uncertainty", "Active Exploration"],
+      links: [],
+    },
+    {
+      name: "Kyorabo",
+      tagline: "Co-founder — find research collaborators",
+      featured: false,
+      years: "2026 – present",
+      description: "A mobile app that matches researchers and students by what they actually work on, so finding collaborators no longer depends on conferences, cold email, or existing networks. Contact opens only after mutual interest, and an Opportunities board carries collaborations, PhD positions, and funding calls. Built by five researchers in Kyoto and live on iOS and the web, it reached 80 researchers from 45 institutions in 18 countries in its first week. Submitted to RevenueCat Shipaton 2026.",
+      tags: ["Co-founder", "React Native", "Expo", "Supabase", "iOS", "Startup"],
+      links: [
+        { label: "Website", url: "https://kyorabo.com/" },
+        { label: "App Store", url: "https://apps.apple.com/app/kyorabo/id6802475176" },
+        { label: "Devpost", url: "https://devpost.com/software/kyorabo-find-research-collaborators" },
+        { label: "Instagram", url: "https://www.instagram.com/kyorabo/" },
+        { label: "LinkedIn", url: "https://www.linkedin.com/in/kyorabo-collab-a8845042b/" },
+        { label: "Facebook", url: "https://www.facebook.com/kyorabo/" },
+      ],
+    },
+    {
+      name: "LLM-Driven Natural Language Robot Control",
+      tagline: "Pre-Capstone project with AsiaQuest Co., Ltd.",
+      featured: true,
+      years: "2025",
+      description: "Led a five-member team building a mobile robot that carries out spoken commands such as “go to the apple, then the pineapple”, fully locally. Whisper and Mistral 7B turn speech into structured commands, Grounded SAM 2 on RGB-D locates objects in 3D, and ROS 2 SLAM with Nav2 plans the path; I worked on the language and vision pipelines. By the final, it handled multi-step tasks with latency cut from 5–6 s to 3–4 s.",
+      tags: ["ROS 2", "Nav2 / SLAM", "Whisper", "Mistral 7B", "Grounded SAM 2", "RGB-D", "MQTT", "Team Lead"],
+      links: [],
+    },
+    {
+      name: "AirKeys",
+      tagline: "Portable VR/MR piano with dual-layer hand tracking and AI-guided learning",
+      featured: false,
+      years: "2025 – 2026",
+      description: "Cornerstone project, presented in 2025 (VR) and again in 2026 (mixed reality). Finger tracking fuses a Leap Motion Controller 2 with a flex-sensor glove, which proved noticeably more precise than Leap Motion alone; a song-learning mode asks GPT-3 for a tune's key sequence and lights the keys up; and a servo-and-tendon glove was designed to resist the fingertip on each key press. It led directly to my later work on rendering a piano key's feel without a physical key.",
+      tags: ["VR / MR", "Leap Motion", "Flex-Sensor Glove", "GPT-3", "Haptic Glove", "Unity"],
+      links: [],
+    },
     {
       name: "ELIBot",
       tagline: "All-terrain clawed-wheel robot for an obstacle-course challenge",

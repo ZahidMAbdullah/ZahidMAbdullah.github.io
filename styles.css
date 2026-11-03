@@ -375,8 +375,6 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.875rem;
   font-weight: 500;
 }
-
-.hero-text + .about-prose { margin-top: 2.75rem; }
 .about-prose { max-width: 70ch; font-size: 1.0625rem; }
 
 /* --- News ---------------------------------------------------------------- */
