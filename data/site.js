@@ -13,7 +13,7 @@ const SITE = {
   altEmail: "abdullahzahid1440@gmail.com",
 
   // Leave a value as "" to hide that link everywhere on the site.
-  cv: "",
+  cv: "assets/cv.pdf",                    // public CV, built from cv/cv.tex
   scholar: "",                            // https://scholar.google.com/citations?user=d0xOFi0AAAAJ&hl=en — add back once papers are listed
   github: "https://github.com/ZahidMAbdullah",
   linkedin: "https://www.linkedin.com/in/muhammad-abdullah-zahid-3b5a1226a/",

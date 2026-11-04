@@ -1,0 +1,247 @@
+% ============================================================================
+%  Public CV — Muhammad Abdullah Zahid
+%  Build (inside cv/; latexmk fails under MiKTeX here, so run pdflatex twice):
+%          pdflatex -output-directory=build cv.tex   (twice)
+%          then copy build/cv.pdf to ../assets/cv.pdf
+%  This is the version linked from the website. It mirrors the full CV but
+%  intentionally leaves out home address, phone number, date of birth, GPA,
+%  scholarships, and honors and awards; those stay in the private CV.
+% ============================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[charter]{mathdesign}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.1cm,right=2.1cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+
+% Bullets may break across pages, but never leave a single line stranded at either end.
+\makeatletter\@clubpenalty=10000\makeatother
+\clubpenalty=10000
+\widowpenalty=10000
+\raggedbottom
+% Never leave a section heading alone at the bottom of a page.
+\let\cvorigsection\section
+\renewcommand{\section}[1]{\Needspace{6\baselineskip}\cvorigsection{#1}}
+
+\definecolor{cvred}{RGB}{122,0,0}
+\definecolor{cvlink}{RGB}{190,20,70}
+\hypersetup{colorlinks=true,urlcolor=cvlink,linkcolor=cvlink,
+  pdftitle={CV - Muhammad Abdullah Zahid},pdfauthor={Muhammad Abdullah Zahid}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Section headings: dark-red small caps with a rule underneath.
+\titleformat{\section}{\color{cvred}\scshape\large}{}{0em}{}[{\color{cvred}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+\titleformat{\subsection}{\color{cvred}\normalsize}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{8pt}{3pt}
+
+\setlist[itemize]{leftmargin=1.4em,label=\textbullet,itemsep=1pt,topsep=2pt,parsep=0pt,before={\interlinepenalty0\relax}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\footnotesize\color{gray}\thepage}
+\fancyfoot[L]{\footnotesize\color{gray}Last updated November 2026}
+
+% \entry{Organisation}{, Role}{Dates}
+\newcommand{\entry}[3]{\par\Needspace{4\baselineskip}\textbf{#1}#2\hfill #3\par\nopagebreak}
+% \sub{italic line under an entry}
+\newcommand{\sub}[1]{{\itshape #1}\par}
+% \pub{label}{title}{authors}{venue and status}
+\newcommand{\pub}[4]{\par\vspace{5pt}\Needspace{3\baselineskip}{\bfseries[#1] #2}\par #3\par{\itshape #4}\par}
+% \me — own name in the author list
+\newcommand{\me}{\textbf{M.\,A.\ Zahid}}
+% \item-style labelled line: \lab{Label} text
+\newcommand{\lab}[1]{\textbf{#1}\ }
+
+\begin{document}
+
+% --- Header -----------------------------------------------------------------
+\begin{center}
+  {\LARGE\bfseries Muhammad Abdullah Zahid}\\[4pt]
+  Undergraduate Researcher, NISAR Laboratory, Kyoto University of Advanced Science\\[3pt]
+  \href{mailto:2023m654@kuas.ac.jp}{2023m654@kuas.ac.jp} (university)\quad$|$\quad
+  \href{mailto:abdullahzahid1440@gmail.com}{abdullahzahid1440@gmail.com} (personal)\\[2pt]
+  \href{https://zahidmabdullah.github.io}{zahidmabdullah.github.io}\quad$|$\quad
+  \href{https://github.com/ZahidMAbdullah}{github.com/ZahidMAbdullah}\quad$|$\quad
+  \href{https://www.linkedin.com/in/muhammad-abdullah-zahid-3b5a1226a/}{LinkedIn}
+\end{center}
+
+% --- Research interests -------------------------------------------------------
+\section{Research Interests}
+
+\lab{Mixed Reality Interfaces for Fine Robotic Telemanipulation.} How the operator's visual
+representation of the robot and its workspace shapes fine manipulation, and whether spatially registered
+mixed reality helps operators not only perform better but also acquire skills faster.
+
+\vspace{4pt}
+\lab{Skill Transfer from Virtual Training to Physical Execution.} Whether a single interface shared by
+virtual training and real teleoperation lets skills carry over without readaptation, and how digital
+twins can keep that interface faithful to a changing remote workspace in real time.
+
+\vspace{4pt}
+\lab{Wearable Haptics for Telemanipulation and XR.} Which manipulation events are worth conveying
+through touch, and how lightweight wearables, vibrotactile or passive kinesthetic, can render them
+without tethering the operator to a grounded device.
+
+\vspace{4pt}
+\lab{Autonomous Robot Control.} Robust semantic object navigation for mobile robots in dynamic,
+uncertain environments.
+
+% --- Education ----------------------------------------------------------------
+\section{Education}
+
+\entry{Kyoto University of Advanced Science (KUAS)}{, Kyoto, Japan}{Sep.\ 2027 -- Sep.\ 2029}
+\sub{Master of Engineering \quad$|$\quad Admitted; enrolling Sep.\ 2027 (two-year program)}
+\sub{Graduate School of Engineering \quad$|$\quad Division of Mechanical and Electrical Systems Engineering}
+\begin{itemize}
+  \item \lab{Research Supervisor} \href{https://www.kuas.ac.jp/en/f-r/eng/sajid-nisar/}{Dr.\ Sajid Nisar},
+        \href{https://nisarlab.org/}{Novel Intelligent Systems \& Advanced Robotics Laboratory}
+  \item \lab{Planned Research} Bridging Training and Execution: A Unified Mixed Reality Interface for
+        Robotic Telemanipulation
+\end{itemize}
+
+\vspace{3pt}
+\entry{Kyoto University of Advanced Science (KUAS)}{, Kyoto, Japan}{Sep.\ 2023 -- Sep.\ 2027}
+\sub{Bachelor of Engineering \quad$|$\quad Expected graduation: Sep.\ 2027}
+\sub{Faculty of Engineering \quad$|$\quad Department of Mechanical and Electrical Systems Engineering}
+\begin{itemize}
+  \item \lab{Research Supervisor} \href{https://www.kuas.ac.jp/en/f-r/eng/sajid-nisar/}{Dr.\ Sajid Nisar},
+        \href{https://nisarlab.org/}{Novel Intelligent Systems \& Advanced Robotics Laboratory}
+        (Mar.\ 2025 -- Present)
+\end{itemize}
+
+% --- Research experience --------------------------------------------------------
+\section{Research Experience}
+
+\entry{NISAR Laboratory, KUAS}{, Undergraduate Researcher}{Mar.\ 2025 -- Present}
+\sub{Research Supervisor: Dr.\ Sajid Nisar \quad$|$\quad Novel Intelligent Systems \& Advanced Robotics Laboratory}
+\begin{itemize}
+  \item \lab{HaptLinX: Haptic-Enabled MR Telemanipulation Training (2025) [C4].} First prototype: a
+        digital twin of a 6-DoF Kinova Gen3 Lite, controlled in MR on a Meta Quest 3S through hand
+        tracking and mirrored in real time by the physical arm, with bHaptics glove and suit cues for
+        contact and alignment. Selected for the IEEE World Haptics 2025 Student Innovation Challenge.
+  \item \lab{MR Training Interface for Fine Telemanipulation (Lab Project, 2026 -- Present) [C1].}
+        Built the training module of the unified MR interface and evaluated it in a twelve-participant
+        $2\times2$ within-subject study against a 2D multi-view display under the same control mapping.
+        MR raised performance (5.19 vs.\ 1.19 successful placements/trial) and learning rate
+        ($+0.479$ placements/trial); vibrotactile cues cut self-collisions by 0.71 per trial but did not
+        accelerate learning.
+  \item \lab{Unified MR Interface from Training to Execution (In Progress; Master's Research from Sep.\ 2027).}
+        Extending the same MR interface and hand-based control from virtual training to teleoperation of
+        the physical robot through its digital twin, with the robot workspace synchronised through RGB-D
+        object reconstruction and pose tracking (NVIDIA FoundationPose), to measure how skills transfer
+        to real execution.
+  \item \lab{Escapement-Like Kinesthetic Rendering for a Virtual Piano [C2].} Designed a
+        displacement-dependent controller that renders a piano key's let-off through a passive wearable
+        tendon-resistance device with no key surface. Force-proxy measurements over five device fittings
+        showed a consistent drop at let-off, then recovery; ten participants detected the release with
+        95\% median accuracy and located it within the keystroke with 80\%.
+  \item \lab{Wearable vs.\ World-Grounded Haptics for Space Teleoperation [C3].} Contributed to a VR
+        comparison of a world-grounded (sigma.7) and a wearable (Dexmo) interface, with and without force
+        feedback, on a fine-manipulation task modelled on space robotics.
+  \item \lab{Uncertainty-Aware Semantic Object Navigation (2026 -- Present).} Developing an ObjectNav
+        framework that combines object memory, detection confidence, and spatial uncertainty with active
+        exploration, in NVIDIA Isaac Sim.
+\end{itemize}
+
+% --- Publications ---------------------------------------------------------------
+\section{Publications}
+
+\subsection{Peer-Reviewed Conference Papers}
+\pub{C1}{Skill Acquisition in Robotic Teleoperation: Effects of Mixed Reality and Vibrotactile Feedback}
+    {\me, R.\,M.\ Suarez Flores, S.\ Nisar}
+    {2026 9th International Conference on Robotic Systems and Applications (ICRSA 2026). IEEE Xplore indexing in progress.}
+\pub{C2}{Escapement-Like Kinesthetic Rendering with a Passive Wearable Device for a Virtual Piano}
+    {\me, S.\ Shukla, R.\,M.\ Suarez Flores, S.\ Nisar}
+    {2026 9th International Conference on Robotic Systems and Applications (ICRSA 2026). IEEE Xplore indexing in progress.}
+\pub{C3}{Wearable vs.\ World-Grounded Haptics for Space Teleoperation: A VR-Based Comparative Analysis of Kinesthetic Feedback for Fine Telemanipulation}
+    {K.\,H.\ Joshi, R.\,M.\ Suarez Flores, \me, S.\ Nisar}
+    {31st International Symposium on Artificial Life and Robotics 2026 (AROB 2026).}
+
+\subsection{Non-Peer-Reviewed Papers}
+\pub{C4}{Developing a Haptic-Enabled Mixed-Reality System for Fine Robotic Telemanipulation Training}
+    {\me, R.\,M.\ Suarez Flores, K.\ K C, K.\ Meitani, A.\ Majumder, S.\ Nisar}
+    {43rd Annual Conference of the Robotics Society of Japan (RSJ2025).}
+
+% --- Presentations ----------------------------------------------------------------
+\section{Presentations}
+
+\lab{Oral} ICRSA 2026, Huizhou, China --- [C1] and [C2] (Oct.\ 30 -- Nov.\ 1, 2026).\\
+\lab{Oral} RSJ2025, International Session --- Human and Robot, Tokyo, Japan --- [C4] (Sep.\ 2025).\\
+\lab{Poster} IEEE World Haptics Conference 2025, Student Innovation Challenge --- Mixed Reality, Suwon,
+South Korea --- \textit{HaptLinX} (Jul.\ 2025).
+
+% --- Teaching -----------------------------------------------------------------------
+\section{Teaching Experience}
+
+\entry{Introduction to Robotic Manipulators}{, Teaching Assistant, KUAS}{Sep.\ 2026 -- Present}
+\entry{Algorithmic Thinking and Programming with Python}{, Teaching Assistant, KUAS}{Apr.\ -- Jul.\ 2026}
+
+% --- Projects -----------------------------------------------------------------------
+\section{Projects and Leadership}
+
+\entry{LLM-Driven Natural Language Robot Control}{, Team Leader, with AsiaQuest Co., Ltd.}{2025}
+\begin{itemize}
+  \item Led a five-member team building a mobile robot that executes spoken multi-step commands locally
+        (Whisper, Mistral 7B, Grounded SAM 2 on RGB-D, ROS 2 SLAM and Nav2); worked on the language
+        processing, vision, and navigation pipelines.
+\end{itemize}
+
+\entry{Kyorabo}{, Co-Founder}{2026 -- Present}
+\begin{itemize}
+  \item Research-collaboration matching app built by a team of five (React Native, Supabase), live on
+        iOS and the web; reached 80 researchers from 45 institutions in 18 countries in its first week.
+        \href{https://kyorabo.com/}{[Website]}
+        \href{https://devpost.com/software/kyorabo-find-research-collaborators}{[Devpost]}
+\end{itemize}
+
+\entry{AirKeys}{, KUAS Cornerstone Project}{2025 -- 2026}
+\begin{itemize}
+  \item Self-initiated virtual piano: a VR version with hand tracking (2025), extended to MR with AI
+        features and haptic feedback (2026); the origin of the haptic rendering work in [C2].
+\end{itemize}
+
+\entry{Mobile Robots}{, Mechatronics Laboratory}{2025 -- 2026}
+\begin{itemize}
+  \item \textit{ELIBot}: four-wheeled obstacle-course robot teleoperated through ROS 2 on a Raspberry
+        Pi 4, with QR-code and traffic-light detection and STM32 motor control
+        \href{https://github.com/ZahidMAbdullah/ELIBot}{[GitHub]}; \textit{self-balancing line follower}
+        with staged LQR control
+        \href{https://github.com/ZahidMAbdullah/Staged-LQR-LineFollowerBot}{[GitHub]}.
+\end{itemize}
+
+% --- Memberships & service -----------------------------------------------------------
+\section{Memberships and Service}
+
+\lab{Memberships} IEEE, Student Member; Robotics Society of Japan, Student Member (2025 -- Present).\\
+\lab{Outreach} Featured Speaker, ``Study in Japan: Fully Funded Undergraduate Scholarships,'' Pakistan
+Student Association Japan (PSAJ), online (Mar.\ 2026).
+
+% --- Skills -----------------------------------------------------------------------------
+\section{Skills}
+
+\lab{XR and Haptics} Unity (C\#), Meta Quest 3S, digital twins, hand tracking, inverse kinematics,
+bHaptics TactSuit Pro / TactGlove DK2, sigma.7, Dexmo.\\
+\lab{Robotics} Kinova Gen3 Lite, teleoperation, ROS 2, NVIDIA Isaac Sim, computer vision, mobile robot
+navigation, embedded control (Arduino, STM32).\\
+\lab{Research Methods} Within-subject experiment design, user studies, statistical analysis, \LaTeX.\\
+\lab{Programming} Python, C/C++; Linux, Git.\\
+\lab{Applied AI} Integrating pretrained models: Grounded SAM 2, SAM 3D, FoundationPose, Whisper,
+Mistral 7B.\\
+\lab{Languages} English (IELTS 7.5), Japanese (JLPT N4).\\
+\lab{Certifications} JSPS Research Ethics, eL CoRE (2026)
+\href{https://zahidmabdullah.github.io/assets/certificates/zahid-2026-jsps-elcore-research-ethics-certificate.pdf}{[Certificate]};
+MITx 6.00.1x, Computer Science and Python (2024)
+\href{https://courses.edx.org/certificates/9ee1f4959cd14ef0beca032932c73867}{[Certificate]}.
+
+\end{document}
