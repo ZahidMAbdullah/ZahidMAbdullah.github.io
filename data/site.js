@@ -57,7 +57,7 @@ const SITE = {
       venue: "43rd Annual Conference of the Robotics Society of Japan (RSJ2025), Tokyo",
       year: "2025",
       status: "",
-      links: [{ label: "Conference", url: "https://ac.rsj-web.org/2025/" }],
+      links: [],
       abstract: "We present a vibrotactile haptic-enabled mixed reality training platform designed to accelerate skill acquisition for fine telemanipulation tasks. The system utilizes a wearable vibrotactile glove and suit, providing haptic feedback and assistance for positioning, touch interaction, and alignment, specifically targeting the fingertips, wrist, and chest regions. A digital twin of a six-degree-of-freedom robotic arm is controlled within the mixed reality environment by tracking the user’s hand position and actions, which are mirrored in real time by the physical robotic counterpart. User experiments involving a remote assembly task are conducted to evaluate the system’s effectiveness with and without tactile feedback.",
     },
   ],
