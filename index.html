@@ -12,9 +12,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 
 <!-- Set the theme before first paint so the page never flashes the wrong one. -->
 <script>
@@ -36,135 +36,96 @@
   <div class="wrap header-inner">
     <a class="brand" href="#top">M. A. Zahid</a>
 
-    <nav class="nav" id="nav" aria-label="Sections">
-      <a href="#about">About</a>
+    <nav class="nav" aria-label="Sections">
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="header-actions">
-      <button class="theme-toggle" id="theme-toggle" type="button"
-              aria-label="Switch between light and dark theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="4.2"/>
-          <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/>
-        </svg>
-      </button>
-    </div>
+    <button class="theme-toggle" id="theme-toggle" type="button"
+            aria-label="Switch between light and dark theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/>
+      </svg>
+    </button>
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="wrap">
 <span id="top"></span>
 
 <!-- ======================= ABOUT ======================= -->
-<section id="about" class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
+<section id="about" class="about">
+  <img class="portrait" src="assets/profile.jpg"
+       alt="Muhammad Abdullah Zahid in the NISAR Laboratory, beside a Kinova Gen3 Lite robotic arm."
+       width="1600" height="1067">
 
-      <div class="hero-text">
-        <p class="site-notice">This website is still under construction &mdash; more is on the way.</p>
-        <h1>Muhammad Abdullah Zahid</h1>
-        <p class="hero-role">
-          Undergraduate Researcher,
-          <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Laboratory</a><br>
-          <a href="https://www.kuas.ac.jp/en" target="_blank" rel="noopener">Kyoto University of Advanced Science</a>
-          &middot; Kyoto, Japan
-        </p>
+  <div class="about-text">
+  <h1>Muhammad Abdullah Zahid</h1>
+  <p class="role">
+    Undergraduate Researcher,
+    <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Laboratory</a>,
+    <a href="https://www.kuas.ac.jp/en" target="_blank" rel="noopener">Kyoto University of Advanced Science</a>
+  </p>
 
-        <ul class="keyword-list" id="keywords"></ul>
+  <p>
+    I work with
+    <a href="https://www.kuas.ac.jp/en/f-r/eng/sajid-nisar/" target="_blank" rel="noopener">Dr.&nbsp;Sajid Nisar</a>
+    on haptics and mixed reality for robotic telemanipulation. My research asks what the sense of touch
+    contributes when someone controls a robot through a virtual or mixed-reality interface &mdash; not only to
+    how well they perform, but to how quickly they learn. I build wearable haptic devices and digital twins of
+    robot manipulators, and evaluate them in controlled user studies.
+  </p>
+  <p>
+    <span class="label">Interests:</span> mixed-reality interfaces for fine robotic telemanipulation,
+    skill transfer from virtual training to physical execution, wearable haptics, and autonomous robot control.
+  </p>
 
-        <div class="hero-links" id="hero-links"></div>
-      </div>
+  <p class="links" id="profile-links"></p>
 
-      <figure class="hero-photo">
-        <img src="assets/profile.jpg"
-             alt="Muhammad Abdullah Zahid in the NISAR Laboratory, standing beside a Kinova Gen3 Lite robotic arm with a haptic suit, gloves and a mixed-reality headset laid out on the table."
-             width="1600" height="1067" loading="eager">
-      </figure>
-
-    </div>
-
-    <div class="prose about-prose">
-      <p>
-        I am an undergraduate researcher at the <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR
-        Laboratory</a>, Kyoto University of Advanced Science, where I work with
-        <a href="https://www.kuas.ac.jp/en/f-r/eng/sajid-nisar/" target="_blank" rel="noopener">Dr.&nbsp;Sajid Nisar</a>
-        on haptics and mixed reality for robotic telemanipulation.
-      </p>
-      <p>
-        My research asks what the sense of touch contributes when someone controls a robot through a
-        virtual or mixed-reality interface &mdash; not only to how well they perform on the day, but to how
-        quickly they learn the skill at all. That means building the systems and then testing them properly:
-        wearable vibrotactile and passive kinesthetic devices, spatially registered digital twins of robot
-        manipulators, and controlled user studies that measure the rate of improvement rather than a single
-        snapshot of performance.
-      </p>
-    </div>
+  <p class="notice">This site is still under construction.</p>
   </div>
 </section>
 
 <!-- ======================= PUBLICATIONS ======================= -->
-<section id="publications" class="section section-alt">
-  <div class="wrap">
-    <h2 class="section-title">Publications</h2>
-
-    <div class="filters" id="pub-filters" role="group" aria-label="Filter publications">
-      <button class="filter is-active" type="button" data-filter="all">All</button>
-      <button class="filter" type="button" data-filter="peer">Peer-reviewed</button>
-      <button class="filter" type="button" data-filter="other">Other</button>
-    </div>
-
-    <ol class="pub-list" id="publications-list"></ol>
-  </div>
+<section id="publications">
+  <h2>Publications</h2>
+  <ol class="pubs" id="publications-list"></ol>
 </section>
 
 <!-- ======================= PROJECTS ======================= -->
-<section id="projects" class="section">
-  <div class="wrap">
-    <h2 class="section-title">Projects</h2>
-    <div class="project-grid" id="projects-list"></div>
-  </div>
+<section id="projects">
+  <h2>Projects</h2>
+  <ul class="projects" id="projects-list"></ul>
 </section>
 
 <!-- ======================= CERTIFICATIONS ======================= -->
-<section id="certifications" class="section section-alt">
-  <div class="wrap">
-    <h2 class="section-title">Certifications</h2>
-    <ul class="entry-list" id="certifications-list"></ul>
-  </div>
+<section id="certifications">
+  <h2>Certifications</h2>
+  <ul class="entries" id="certifications-list"></ul>
 </section>
 
 <!-- ======================= CONTACT ======================= -->
-<section id="contact" class="section">
-  <div class="wrap">
-    <h2 class="section-title">Contact</h2>
-    <div class="prose section-intro">
-      <p>
-        I am happy to hear about research collaborations, graduate study, or anything related to haptics and
-        mixed reality. Email is the most reliable way to reach me.
-      </p>
-      <p id="contact-email" class="contact-email"></p>
-    </div>
-    <div class="hero-links" id="contact-links"></div>
-  </div>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>
+    I am happy to hear about research collaborations, graduate study, or anything related to haptics and
+    mixed reality.
+  </p>
+  <p id="contact-email"></p>
 </section>
 
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>&copy; <span id="year"></span> Muhammad Abdullah Zahid</p>
-    <p class="footer-meta">Kyoto, Japan</p>
-  </div>
+  <div class="wrap">&copy; <span id="year"></span> Muhammad Abdullah Zahid</div>
 </footer>
 
-<script src="data/site.js?v=5"></script>
-<script src="main.js?v=5"></script>
+<script src="data/site.js?v=6"></script>
+<script src="main.js?v=6"></script>
 </body>
 </html>
