@@ -78,7 +78,11 @@
     if (SITE.linkedin) links.push({ label: "LinkedIn", url: SITE.linkedin });
     if (SITE.orcid)    links.push({ label: "ORCID", url: SITE.orcid });
 
-    appendLinks(row, links);
+    // The separator is its own element so it is not part of either link.
+    links.forEach(function (link, index) {
+      if (index > 0) row.appendChild(el("span", "sep", "·"));
+      row.appendChild(anchor(link.label, link.url));
+    });
   }
 
   function renderContactEmail() {

@@ -172,8 +172,7 @@ h1 { font-size: 1.75rem; margin-bottom: 0.2rem; }
 
 .label { font-weight: 600; }
 
-.links a + a::before {
-  content: "·";
+.links .sep {
   margin: 0 0.5rem;
   color: var(--text-muted);
 }
