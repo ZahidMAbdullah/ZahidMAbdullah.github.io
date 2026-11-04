@@ -37,11 +37,44 @@
   --accent: #8cc79a;
 }
 
+/* --- Navigation bar ------------------------------------------------------ */
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-inner {
+  position: relative;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 10px 56px;
+}
+
+.site-nav nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 26px;
+  font: 15px/1.6 var(--font);
+}
+.site-nav nav a { color: var(--text); }
+.site-nav nav a:hover { color: var(--accent); text-decoration: none; }
+
 /* --- Theme toggle -------------------------------------------------------- */
 .theme-toggle {
-  position: fixed;
-  top: 14px;
-  right: 14px;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
   display: grid;
   place-items: center;
   width: 34px;
@@ -192,6 +225,18 @@ h2 {
 
 /* --- Narrow screens ------------------------------------------------------ */
 @media (max-width: 640px) {
+  .nav-inner { padding: 10px 52px 10px 16px; }
+  .site-nav nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 12px;
+    font-size: 13.5px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+  .site-nav nav::-webkit-scrollbar { display: none; }
+  .site-nav nav a[href="#about"] { display: none; }
   .wrap { padding-top: 32px; }
   .intro { grid-template-columns: 1fr; gap: 20px; }
   .photo { grid-row: 1; justify-self: center; width: 150px; height: 150px; }
