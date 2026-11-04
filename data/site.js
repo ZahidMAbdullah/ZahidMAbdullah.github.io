@@ -14,7 +14,7 @@ const SITE = {
 
   // Leave a value as "" to hide that link everywhere on the site.
   cv: "",
-  scholar: "https://scholar.google.com/citations?user=d0xOFi0AAAAJ&hl=en",
+  scholar: "",                            // https://scholar.google.com/citations?user=d0xOFi0AAAAJ&hl=en — add back once papers are listed
   github: "https://github.com/ZahidMAbdullah",
   linkedin: "https://www.linkedin.com/in/muhammad-abdullah-zahid-3b5a1226a/",
   orcid: "",
