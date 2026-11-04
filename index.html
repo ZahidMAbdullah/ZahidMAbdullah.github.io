@@ -12,19 +12,28 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=17">
+<link rel="stylesheet" href="styles.css?v=20">
 
-<!-- Set the theme before first paint so the page never flashes the wrong one. -->
+<!-- Set the theme and language before first paint so the page never flashes the wrong one.
+     The language comes from ?lang=ja|en, then the visitor's last choice. -->
 <script>
   (function () {
+    var root = document.documentElement;
     try {
       var saved = localStorage.getItem("theme");
-      if (saved === "light" || saved === "dark") {
-        document.documentElement.setAttribute("data-theme", saved);
-      }
+      if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
     } catch (e) { /* private mode — fall back to the OS preference */ }
+
+    var lang = (location.search.match(/[?&]lang=(en|ja)\b/) || [])[1];
+    if (!lang) {
+      try { lang = localStorage.getItem("lang"); } catch (e) { /* private mode */ }
+    }
+    if (lang === "ja") {
+      root.setAttribute("data-lang", "ja");
+      root.lang = "ja";
+    }
   })();
 </script>
 </head>
@@ -33,23 +42,29 @@
 <header class="site-nav">
   <div class="nav-inner">
     <nav aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#publications">Publications</a>
-      <a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><span class="i18n" lang="en">About</span><span class="i18n" lang="ja">自己紹介</span></a>
+      <a href="#publications"><span class="i18n" lang="en">Publications</span><span class="i18n" lang="ja">研究業績</span></a>
+      <a href="#projects"><span class="i18n" lang="en">Projects</span><span class="i18n" lang="ja">プロジェクト</span></a>
+      <a href="#certifications"><span class="i18n" lang="en">Certifications</span><span class="i18n" lang="ja">修了証</span></a>
+      <a href="#contact"><span class="i18n" lang="en">Contact</span><span class="i18n" lang="ja">連絡先</span></a>
     </nav>
 
-    <button class="theme-toggle" id="theme-toggle" type="button"
-            aria-label="Switch between light and dark theme">
-      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.2"/>
-        <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/>
-      </svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/>
-      </svg>
-    </button>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="lang-toggle" type="button">
+        <span class="i18n" lang="en">日本語</span><span class="i18n" lang="ja">EN</span>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Switch between light and dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -60,7 +75,8 @@
   <div class="intro-text">
     <h1>Muhammad Abdullah Zahid</h1>
 
-    <p>
+    <!-- English -->
+    <p class="i18n" lang="en">
       I am an undergraduate researcher at the
       <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Laboratory</a>,
       <a href="https://www.kuas.ac.jp/en" target="_blank" rel="noopener">Kyoto University of Advanced Science</a>,
@@ -70,16 +86,37 @@
       robot and its workspace shapes fine manipulation, and whether a spatially registered mixed-reality
       interface helps people not only perform better but also learn faster.
     </p>
-    <p>
+    <p class="i18n" lang="en">
       My current work builds a single mixed-reality interface that operators use both to train on a virtual
       robot and to control the real one, with a digital twin keeping the remote workspace up to date, so that
       skills carry over without readaptation. This unified interface will be my Master&rsquo;s research at the
       KUAS Graduate School of Engineering from September 2027. Alongside it, I design lightweight wearable
       haptics and work on semantic object navigation for mobile robots.
     </p>
-    <p>
+    <p class="i18n" lang="en">
       <span class="label">Interests:</span> mixed-reality interfaces for fine robotic telemanipulation,
       skill transfer from virtual training to physical execution, wearable haptics, and autonomous robot control.
+    </p>
+
+    <!-- Japanese -->
+    <p class="i18n" lang="ja">
+      <a href="https://www.kuas.ac.jp/" target="_blank" rel="noopener">京都先端科学大学</a>
+      <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR研究室</a>の学部生研究員として、
+      <a href="https://www.kuas.ac.jp/en/f-r/eng/sajid-nisar/" target="_blank" rel="noopener">Sajid Nisar 博士</a>のもとで、
+      ロボット遠隔操作のための複合現実（MR）と触覚技術の研究を行っています。操作者がロボットとその作業空間を
+      どのように見るかが精密な操作にどう影響するか、そして空間的に位置合わせされたMRインターフェースが、
+      作業成績の向上だけでなく技能習得の加速にもつながるかを研究しています。
+    </p>
+    <p class="i18n" lang="ja">
+      現在は、仮想ロボットでの訓練と実機ロボットの操作の両方に同じMRインターフェースを用いる統合システムを
+      開発しています。デジタルツインで遠隔地の作業空間を常に最新の状態に保つことで、訓練で身につけた技能を
+      再適応なしに実作業へ生かすことを目指しています。この統合インターフェースは、2027年9月から
+      京都先端科学大学大学院 工学研究科での修士研究として継続する予定です。並行して、軽量なウェアラブル
+      触覚デバイスの設計や、移動ロボットのための意味的物体ナビゲーションにも取り組んでいます。
+    </p>
+    <p class="i18n" lang="ja">
+      <span class="label">研究関心：</span>精密なロボット遠隔操作のための複合現実インターフェース、
+      仮想訓練から実機操作への技能転移、ウェアラブル触覚技術、自律ロボット制御。
     </p>
 
     <p class="links" id="profile-links"></p>
@@ -92,28 +129,31 @@
 
 <!-- ======================= PUBLICATIONS ======================= -->
 <section id="publications">
-  <h2>Publications</h2>
+  <h2><span class="i18n" lang="en">Publications</span><span class="i18n" lang="ja">研究業績</span></h2>
   <ol class="pubs" id="publications-list"></ol>
 </section>
 
 <!-- ======================= PROJECTS ======================= -->
 <section id="projects">
-  <h2>Projects</h2>
+  <h2><span class="i18n" lang="en">Projects</span><span class="i18n" lang="ja">プロジェクト</span></h2>
   <ul class="projects" id="projects-list"></ul>
 </section>
 
 <!-- ======================= CERTIFICATIONS ======================= -->
 <section id="certifications">
-  <h2>Certifications</h2>
+  <h2><span class="i18n" lang="en">Certifications</span><span class="i18n" lang="ja">修了証</span></h2>
   <ul class="entries" id="certifications-list"></ul>
 </section>
 
 <!-- ======================= CONTACT ======================= -->
 <section id="contact">
-  <h2>Contact</h2>
-  <p>
+  <h2><span class="i18n" lang="en">Contact</span><span class="i18n" lang="ja">連絡先</span></h2>
+  <p class="i18n" lang="en">
     I am happy to hear about research collaborations, graduate study, or anything related to haptics and
     mixed reality.
+  </p>
+  <p class="i18n" lang="ja">
+    研究のコラボレーションや大学院進学、触覚技術や複合現実に関することなど、お気軽にご連絡ください。
   </p>
   <p id="contact-email"></p>
 </section>
@@ -122,7 +162,7 @@
 
 <footer class="site-footer">&copy; <span id="year"></span> Muhammad Abdullah Zahid</footer>
 
-<script src="data/site.js?v=11"></script>
-<script src="main.js?v=12"></script>
+<script src="data/site.js?v=12"></script>
+<script src="main.js?v=14"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@
   --rule:   #e3dccf;
   --accent: #2f6b3a;
 
-  --font: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font: "Source Serif 4", "Noto Serif JP", Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
   --wrap: 800px;
 }
 
@@ -56,7 +56,16 @@ html { scroll-behavior: smooth; scroll-padding-top: 64px; }
   position: relative;
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 10px 56px;
+  padding: 10px 124px;
+}
+
+.nav-actions {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 6px;
 }
 
 .site-nav nav {
@@ -69,12 +78,20 @@ html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 .site-nav nav a { color: var(--text); }
 .site-nav nav a:hover { color: var(--accent); text-decoration: none; }
 
-/* --- Theme toggle -------------------------------------------------------- */
+/* --- Language and theme toggles ------------------------------------------ */
+.lang-toggle {
+  height: 34px;
+  padding: 0 11px;
+  border: 1px solid var(--rule);
+  border-radius: 17px;
+  background: var(--bg);
+  color: var(--muted);
+  font: 13.5px/1 var(--font);
+  cursor: pointer;
+}
+.lang-toggle:hover { color: var(--text); }
+
 .theme-toggle {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
   display: grid;
   place-items: center;
   width: 34px;
@@ -199,7 +216,7 @@ h2 {
 .pub-abstract p { margin: 0; }
 
 /* --- Projects ------------------------------------------------------------ */
-.project-name { font-weight: 600; }
+.project-name { color: var(--accent); font-weight: 600; }
 .project-years { color: var(--muted); font-size: 0.92rem; margin-left: 8px; }
 .project-desc { margin: 2px 0; }
 
@@ -217,9 +234,19 @@ h2 {
   font-size: 0.85rem;
 }
 
+/* --- Languages ----------------------------------------------------------- */
+/* Each translatable piece exists twice, marked lang="en" / lang="ja"; only one shows. */
+.i18n[lang="ja"] { display: none; }
+:root[data-lang="ja"] .i18n[lang="en"] { display: none; }
+:root[data-lang="ja"] p.i18n[lang="ja"] { display: block; }
+:root[data-lang="ja"] span.i18n[lang="ja"] { display: inline; }
+:root[data-lang="ja"] body { line-height: 1.85; }
+
 /* --- Narrow screens ------------------------------------------------------ */
 @media (max-width: 640px) {
-  .nav-inner { padding: 10px 52px 10px 16px; }
+  .nav-inner { padding: 10px 128px 10px 16px; }
+  /* The links scroll sideways if they do not fit; main.js adds .has-more while
+     links are hidden past the right edge, and the fade hints at them. */
   .site-nav nav {
     justify-content: flex-start;
     flex-wrap: nowrap;
@@ -228,6 +255,10 @@ h2 {
     overflow-x: auto;
     scrollbar-width: none;
     white-space: nowrap;
+  }
+  .site-nav nav.has-more {
+    -webkit-mask-image: linear-gradient(to right, #000 82%, transparent);
+    mask-image: linear-gradient(to right, #000 82%, transparent);
   }
   .site-nav nav::-webkit-scrollbar { display: none; }
   .site-nav nav a[href="#about"] { display: none; }
