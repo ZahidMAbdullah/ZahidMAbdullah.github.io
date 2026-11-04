@@ -5,96 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Muhammad Abdullah Zahid</title>
-<meta name="description" content="Undergraduate researcher at the NISAR Laboratory, Kyoto University of Advanced Science, working on haptics and mixed reality for robotic telemanipulation.">
+<meta name="description" content="Undergraduate researcher at the NISAR Laboratory, Kyoto University of Advanced Science, working on mixed reality and haptics for robotic telemanipulation.">
 <meta name="author" content="Muhammad Abdullah Zahid">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f5f60'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23ffffff' text-anchor='middle'%3EAZ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6b3a'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23ffffff' text-anchor='middle'%3EAZ%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css?v=9">
-
-<!-- Set the theme before first paint so the page never flashes the wrong one. -->
-<script>
-  (function () {
-    try {
-      var saved = localStorage.getItem("theme");
-      if (saved === "light" || saved === "dark") {
-        document.documentElement.setAttribute("data-theme", saved);
-      }
-    } catch (e) { /* private mode — fall back to the OS preference */ }
-  })();
-</script>
+<link rel="stylesheet" href="styles.css?v=11">
 </head>
 
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="#top">M. A. Zahid</a>
-
-    <nav class="nav" aria-label="Sections">
-      <a href="#publications">Publications</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="theme-toggle" id="theme-toggle" type="button"
-            aria-label="Switch between light and dark theme">
-      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.2"/>
-        <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/>
-      </svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/>
-      </svg>
-    </button>
-  </div>
-</header>
-
-<main id="main" class="wrap">
-<span id="top"></span>
+<main class="wrap">
 
 <!-- ======================= ABOUT ======================= -->
-<section id="about" class="about">
-  <img class="portrait" src="assets/profile.jpg"
+<section id="about" class="intro">
+  <div class="intro-text">
+    <h1>Muhammad Abdullah Zahid</h1>
+
+    <p>
+      I am an undergraduate researcher at the
+      <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Laboratory</a>,
+      <a href="https://www.kuas.ac.jp/en" target="_blank" rel="noopener">Kyoto University of Advanced Science</a>,
+      where I work with
+      <a href="https://www.kuas.ac.jp/en/f-r/eng/sajid-nisar/" target="_blank" rel="noopener">Dr.&nbsp;Sajid Nisar</a>
+      on mixed reality and haptics for robotic telemanipulation. I study how the operator&rsquo;s view of the
+      robot and its workspace shapes fine manipulation, and whether a spatially registered mixed-reality
+      interface helps people not only perform better but also learn faster.
+    </p>
+    <p>
+      My current work builds a single mixed-reality interface that operators use both to train on a virtual
+      robot and to control the real one, with a digital twin keeping the remote workspace up to date, so that
+      skills carry over without readaptation. I also design lightweight wearable haptics, and work on semantic
+      object navigation for mobile robots. I will continue this research as a Master&rsquo;s student at the
+      KUAS Graduate School of Engineering from September 2027.
+    </p>
+    <p>
+      <span class="label">Interests:</span> mixed-reality interfaces for fine robotic telemanipulation,
+      skill transfer from virtual training to physical execution, wearable haptics, and autonomous robot control.
+    </p>
+
+    <p class="links" id="profile-links"></p>
+    <p class="notice">This site is still under construction.</p>
+  </div>
+
+  <img class="photo" src="assets/profile.jpg"
        alt="Muhammad Abdullah Zahid in the NISAR Laboratory, beside a Kinova Gen3 Lite robotic arm."
        width="1600" height="1067">
-
-  <div class="about-text">
-  <h1>Muhammad Abdullah Zahid</h1>
-  <p class="role">
-    Undergraduate Researcher,
-    <a href="https://nisarlab.org/" target="_blank" rel="noopener">NISAR Laboratory</a>,
-    <a href="https://www.kuas.ac.jp/en" target="_blank" rel="noopener">Kyoto University of Advanced Science</a>
-  </p>
-
-  <p>
-    I work with
-    <a href="https://www.kuas.ac.jp/en/f-r/eng/sajid-nisar/" target="_blank" rel="noopener">Dr.&nbsp;Sajid Nisar</a>
-    on mixed reality and haptics for robotic telemanipulation. I study how the operator&rsquo;s view of the
-    robot and its workspace shapes fine manipulation, and whether a spatially registered mixed-reality
-    interface helps people not only perform better but also learn faster.
-  </p>
-  <p>
-    My current work builds a single mixed-reality interface that operators use both to train on a virtual
-    robot and to control the real one, with a digital twin keeping the remote workspace up to date, so that
-    skills carry over without readaptation. I also design lightweight wearable haptics, and work on semantic
-    object navigation for mobile robots. I will continue this research as a Master&rsquo;s student at the
-    KUAS Graduate School of Engineering from September 2027.
-  </p>
-  <p>
-    <span class="label">Interests:</span> mixed-reality interfaces for fine robotic telemanipulation,
-    skill transfer from virtual training to physical execution, wearable haptics, and autonomous robot control.
-  </p>
-
-  <p class="links" id="profile-links"></p>
-
-  <p class="notice">This site is still under construction.</p>
-  </div>
 </section>
 
 <!-- ======================= PUBLICATIONS ======================= -->
@@ -127,11 +86,9 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">&copy; <span id="year"></span> Muhammad Abdullah Zahid</div>
-</footer>
+<footer class="site-footer">&copy; <span id="year"></span> Muhammad Abdullah Zahid</footer>
 
-<script src="data/site.js?v=10"></script>
-<script src="main.js?v=9"></script>
+<script src="data/site.js?v=11"></script>
+<script src="main.js?v=11"></script>
 </body>
 </html>

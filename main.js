@@ -38,30 +38,18 @@
     return a;
   }
 
-  function appendLinks(container, links) {
-    (links || []).forEach(function (link) {
-      container.appendChild(anchor(link.label, link.url));
-    });
+  // Wraps a link or button as [label]; the brackets are plain text, outside the link.
+  function appendBracketed(container, node) {
+    var wrap = el("span", "bracket");
+    wrap.appendChild(document.createTextNode("["));
+    wrap.appendChild(node);
+    wrap.appendChild(document.createTextNode("]"));
+    container.appendChild(wrap);
   }
 
-  /* --- Theme ------------------------------------------------------------- */
-  function initTheme() {
-    var toggle = $("theme-toggle");
-    if (!toggle) return;
-
-    toggle.addEventListener("click", function () {
-      var root = document.documentElement;
-      var current = root.getAttribute("data-theme");
-
-      if (!current) {
-        // No explicit choice yet — flip away from whatever the OS is doing.
-        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        current = prefersDark ? "dark" : "light";
-      }
-
-      var next = current === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) { /* private mode */ }
+  function appendLinks(container, links) {
+    (links || []).forEach(function (link) {
+      appendBracketed(container, anchor(link.label, link.url));
     });
   }
 
@@ -80,7 +68,7 @@
 
     // The separator is its own element so it is not part of either link.
     links.forEach(function (link, index) {
-      if (index > 0) row.appendChild(el("span", "sep", "·"));
+      if (index > 0) row.appendChild(el("span", "sep", "/"));
       row.appendChild(anchor(link.label, link.url));
     });
   }
@@ -128,7 +116,7 @@
           panel.hidden = !open;
           button.setAttribute("aria-expanded", String(open));
         });
-        links.appendChild(button);
+        appendBracketed(links, button);
       }
 
       appendLinks(links, pub.links);
@@ -214,7 +202,6 @@
       return;
     }
 
-    initTheme();
     renderProfileLinks();
     renderContactEmail();
     renderPublications();

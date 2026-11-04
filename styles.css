@@ -1,40 +1,30 @@
 /* ============================================================================
-   styles.css — plain academic page: one narrow column, text links, no cards.
-   Colours live in the tokens below; the dark set is repeated twice (OS
-   preference and the manual toggle) — keep both in sync.
+   styles.css — classic academic page: serif text, one centred column, round
+   photo beside the intro, [bracketed] links. Forest-green accent.
+   Dark mode follows the visitor's system setting.
    ========================================================================== */
 
 /* --- Tokens: light ------------------------------------------------------- */
 :root {
-  --bg:         #ffffff;
-  --text:       #222222;
-  --text-muted: #5c5c5c;
-  --rule:       #e5e5e5;
-  --accent:     #0f5f60;
+  --bg:     #ffffff;
+  --text:   #1f1f1f;
+  --muted:  #666666;
+  --rule:   #e6e6e6;
+  --accent: #2f6b3a;
 
-  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-sans:  Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  --wrap: 820px;
+  --font: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --wrap: 800px;
 }
 
 /* --- Tokens: dark -------------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:         #16181c;
-    --text:       #e4e2dd;
-    --text-muted: #a3a09a;
-    --rule:       #2c3036;
-    --accent:     #6cc2be;
+  :root {
+    --bg:     #16181c;
+    --text:   #e4e2dd;
+    --muted:  #a3a09a;
+    --rule:   #2c3036;
+    --accent: #8cc79a;
   }
-}
-
-:root[data-theme="dark"] {
-  --bg:         #16181c;
-  --text:       #e4e2dd;
-  --text-muted: #a3a09a;
-  --rule:       #2c3036;
-  --accent:     #6cc2be;
 }
 
 /* --- Base ---------------------------------------------------------------- */
@@ -42,166 +32,83 @@
 
 [hidden] { display: none !important; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
+  font: 16px/1.6 var(--font);
 }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-p { margin: 0 0 0.9rem; }
+p { margin: 0 0 12px; }
 
 .wrap {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 48px 16px 0;
 }
 
-.skip-link {
-  position: absolute;
-  left: -999px;
-}
-.skip-link:focus { left: 16px; top: 8px; z-index: 10; background: var(--bg); padding: 4px 8px; }
-
-/* --- Header -------------------------------------------------------------- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
-}
-
-.header-inner {
-  display: flex;
+/* --- Intro --------------------------------------------------------------- */
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  gap: 36px;
   align-items: center;
-  gap: 1.25rem;
-  height: 3.25rem;
 }
 
-.brand {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--text);
-  margin-right: auto;
-}
-.brand:hover { text-decoration: none; }
-
-.nav { display: flex; gap: 1.1rem; font-size: 0.9rem; }
-.nav a { color: var(--text-muted); }
-.nav a:hover { color: var(--text); text-decoration: none; }
-
-.theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-.theme-toggle:hover { color: var(--text); }
-.theme-toggle svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-}
-.icon-moon { display: none; }
-:root[data-theme="dark"] .icon-sun { display: none; }
-:root[data-theme="dark"] .icon-moon { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .icon-sun { display: none; }
-  :root:not([data-theme="light"]) .icon-moon { display: block; }
+h1 {
+  font-weight: 400;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 18px;
 }
 
-/* --- Sections ------------------------------------------------------------ */
-section { padding: 2.25rem 0 0.5rem; }
-
-h1, h2 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  line-height: 1.25;
-  margin: 0;
-}
-
-h2 {
-  font-size: 1.35rem;
-  padding-bottom: 0.35rem;
-  margin-bottom: 1.1rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-/* --- About --------------------------------------------------------------- */
-.about {
-  display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 2rem;
-  align-items: start;
-  padding-top: 2.75rem;
-}
-
-.portrait {
-  width: 200px;
-  height: 240px;
+.photo {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: 38% center;
-  border-radius: 4px;
+  object-position: 38% 30%;
 }
-
-h1 { font-size: 1.75rem; margin-bottom: 0.2rem; }
-
-.role { color: var(--text-muted); margin-bottom: 1.1rem; }
 
 .label { font-weight: 600; }
 
-.links .sep {
-  margin: 0 0.5rem;
-  color: var(--text-muted);
-}
+.links { text-align: center; margin-top: 18px; }
+.links .sep { margin: 0 10px; color: var(--muted); }
 
 .notice {
-  color: var(--text-muted);
+  text-align: center;
+  color: var(--muted);
   font-size: 0.85rem;
   font-style: italic;
 }
 
-/* --- Publications -------------------------------------------------------- */
+/* --- Sections ------------------------------------------------------------ */
+h2 {
+  font-weight: 400;
+  font-size: 1.45rem;
+  margin: 44px 0 14px;
+}
+
 .pubs, .projects, .entries {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.pubs li, .projects li, .entries li { margin-bottom: 1.25rem; }
+.pubs li, .projects li { margin-bottom: 20px; }
+.entries li { margin-bottom: 8px; }
 
-.pub-title { font-weight: 600; }
+/* --- Publications -------------------------------------------------------- */
+.pub-title { color: var(--accent); font-weight: 600; }
+.pub-authors strong { font-weight: 600; }
 
-.pub-authors, .pub-venue { color: var(--text-muted); }
-.pub-authors strong { color: var(--text); font-weight: 600; }
-
-.item-links {
-  font-size: 0.85rem;
-}
-.item-links a + a,
-.item-links button + a { margin-left: 0.9rem; }
+/* Links read as [Abstract] [Conference]; main.js adds the brackets as plain text. */
+.item-links { font-size: 0.92rem; }
+.item-links .bracket + .bracket { margin-left: 6px; }
 
 .link-button {
   padding: 0;
@@ -214,46 +121,35 @@ h1 { font-size: 1.75rem; margin-bottom: 0.2rem; }
 .link-button:hover { text-decoration: underline; }
 
 .pub-abstract {
-  margin-top: 0.4rem;
-  padding-left: 0.9rem;
-  border-left: 2px solid var(--rule);
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 .pub-abstract p { margin: 0; }
 
 /* --- Projects ------------------------------------------------------------ */
-.project-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
 .project-name { font-weight: 600; }
-.project-years { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
-.project-desc { margin: 0.1rem 0 0.15rem; }
+.project-years { color: var(--muted); font-size: 0.92rem; margin-left: 8px; }
+.project-desc { margin: 2px 0; }
 
 /* --- Certifications ------------------------------------------------------ */
-.entry-year { color: var(--text-muted); margin-right: 0.6rem; }
-.entry-detail { color: var(--text-muted); }
+.entry-year { color: var(--muted); margin-right: 10px; }
+.entry-detail { color: var(--muted); }
 
 /* --- Footer -------------------------------------------------------------- */
 .site-footer {
-  margin-top: 2.5rem;
-  padding: 1.25rem 0 2rem;
-  border-top: 1px solid var(--rule);
-  color: var(--text-muted);
+  max-width: var(--wrap);
+  margin: 48px auto 0;
+  padding: 0 16px 40px;
+  text-align: center;
+  color: var(--muted);
   font-size: 0.85rem;
 }
 
 /* --- Narrow screens ------------------------------------------------------ */
 @media (max-width: 640px) {
-  .about { grid-template-columns: 1fr; gap: 1.25rem; }
-  .portrait { width: 160px; height: 192px; }
-  .brand { font-size: 0.95rem; }
-  .nav { gap: 0.8rem; font-size: 0.85rem; }
-  .header-inner { gap: 0.6rem; }
-}
-
-@media print {
-  .site-header, .theme-toggle { display: none; }
+  .wrap { padding-top: 32px; }
+  .intro { grid-template-columns: 1fr; gap: 20px; }
+  .photo { grid-row: 1; justify-self: center; width: 150px; height: 150px; }
+  h1 { font-size: 1.75rem; }
 }
