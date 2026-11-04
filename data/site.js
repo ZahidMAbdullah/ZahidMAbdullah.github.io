@@ -138,5 +138,6 @@ const SITE = {
   /* --- Certifications ---------------------------------------------------- */
   certifications: [
     { year: "2026", title: "JSPS e-Learning Course on Research Ethics (eL CoRE)", detail: "", url: "assets/certificates/zahid-2026-jsps-elcore-research-ethics-certificate.pdf" },
+    { year: "2024", title: "MITx 6.00.1x: Introduction to Computer Science and Programming Using Python", detail: "", url: "https://courses.edx.org/certificates/9ee1f4959cd14ef0beca032932c73867" },
   ],
 };
