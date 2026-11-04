@@ -65,6 +65,18 @@ const SITE = {
   // "present" come first, then the most recently finished.
   projects: [
     {
+      name: "MR Training Interface for Fine Telemanipulation",
+      years: "2026 – present",
+      description: "My lab project. I built the training module of a mixed-reality teleoperation interface and compared it with a 2D multi-view display in a twelve-participant study. MR raised both performance and the rate of learning; vibrotactile cues reduced self-collisions but did not speed up learning.",
+      links: [],
+    },
+    {
+      name: "Unified MR Interface from Training to Execution",
+      years: "2026 – present",
+      description: "Extending the same interface and hand-based control from virtual training to the physical robot, with the remote workspace kept in sync through RGB-D object reconstruction and pose tracking (NVIDIA FoundationPose), to measure how skills transfer to real execution. This continues as my Master’s research from September 2027.",
+      links: [],
+    },
+    {
       name: "HaptLinX",
       years: "2025",
       description: "First prototype of my mixed-reality telemanipulation training system, selected for the IEEE World Haptics 2025 Student Innovation Challenge. Hand tracking on a Meta Quest 3S drives a digital twin of a Kinova Gen3 Lite that the real arm mirrors, while a haptic glove and suit render contact and alignment cues.",
