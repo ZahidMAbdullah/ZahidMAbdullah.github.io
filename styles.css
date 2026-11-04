@@ -1,15 +1,17 @@
 /* ============================================================================
    styles.css — classic academic page: serif text, one centred column, round
    photo beside the intro, [bracketed] links. Forest-green accent.
-   Dark mode follows the visitor's system setting.
+   Light is a warm "paper" background. Dark follows the system setting until
+   the visitor picks one with the toggle; the dark set is repeated twice
+   below (system preference and toggle) — keep both in sync.
    ========================================================================== */
 
-/* --- Tokens: light ------------------------------------------------------- */
+/* --- Tokens: light (paper) ----------------------------------------------- */
 :root {
-  --bg:     #ffffff;
-  --text:   #1f1f1f;
-  --muted:  #666666;
-  --rule:   #e6e6e6;
+  --bg:     #fbf8f2;
+  --text:   #2a2622;
+  --muted:  #6e675d;
+  --rule:   #e3dccf;
   --accent: #2f6b3a;
 
   --font: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -18,13 +20,55 @@
 
 /* --- Tokens: dark -------------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg:     #16181c;
     --text:   #e4e2dd;
     --muted:  #a3a09a;
     --rule:   #2c3036;
     --accent: #8cc79a;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg:     #16181c;
+  --text:   #e4e2dd;
+  --muted:  #a3a09a;
+  --rule:   #2c3036;
+  --accent: #8cc79a;
+}
+
+/* --- Theme toggle -------------------------------------------------------- */
+.theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); }
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+/* Show the icon of the mode you would switch to. */
+.icon-sun { display: none; }
+:root[data-theme="dark"] .icon-sun { display: block; }
+:root[data-theme="dark"] .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .icon-moon { display: none; }
 }
 
 /* --- Base ---------------------------------------------------------------- */

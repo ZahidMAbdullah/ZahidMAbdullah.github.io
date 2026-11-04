@@ -53,6 +53,27 @@
     });
   }
 
+  /* --- Theme ------------------------------------------------------------- */
+  function initTheme() {
+    var toggle = $("theme-toggle");
+    if (!toggle) return;
+
+    toggle.addEventListener("click", function () {
+      var root = document.documentElement;
+      var current = root.getAttribute("data-theme");
+
+      if (!current) {
+        // No explicit choice yet — flip away from whatever the OS is doing.
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        current = prefersDark ? "dark" : "light";
+      }
+
+      var next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) { /* private mode */ }
+    });
+  }
+
   /* --- Profile links ----------------------------------------------------- */
   function renderProfileLinks() {
     var row = $("profile-links");
@@ -202,6 +223,7 @@
       return;
     }
 
+    initTheme();
     renderProfileLinks();
     renderContactEmail();
     renderPublications();
