@@ -156,12 +156,6 @@ h1 {
 .links { text-align: center; margin-top: 18px; }
 .links .sep { margin: 0 10px; color: var(--muted); }
 
-.notice {
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-style: italic;
-}
 
 /* --- Sections ------------------------------------------------------------ */
 h2 {
